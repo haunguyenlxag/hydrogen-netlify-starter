@@ -26,7 +26,7 @@ function App({request}) {
       <ShopifyProvider countryCode={countryCode}>
         <CartProvider countryCode={countryCode}>
           <Suspense>
-            <Partytown debug={false} forward={['dataLayer.push']} />
+            <Partytown debug={true} forward={['dataLayer.push']} />
             <DefaultSeo />
           </Suspense>
           <Router>
