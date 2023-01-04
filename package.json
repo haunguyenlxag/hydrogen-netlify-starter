@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "npm run partytown && shopify hydrogen dev",
     "build": "npm run partytown && shopify hydrogen build",
-    "partytown": "partytown copylib public/~partytown",
+    "partytown": "partytown copylib ./public/~partytown",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "lint-ts": "tsc --noEmit",
