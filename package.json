@@ -8,11 +8,8 @@
     "node": ">=16.14.0"
   },
   "scripts": {
-    "dev": "npm run partytown && vite",
-    "build": "npm run partytown && yarn build:client && yarn build:server && yarn build:worker",
-    "build:client": "vite build --outDir dist/client --manifest",
-    "build:server": "vite build --outDir dist/server --ssr src/App.server.jsx",
-    "build:worker": "cross-env WORKER=true vite build --outDir dist/worker --ssr worker.js",
+    "dev": "npm run partytown && shopify hydrogen dev",
+    "build": "npm run partytown && shopify hydrogen build",
     "partytown": "partytown copylib public/~partytown",
     "preview": "shopify hydrogen preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
