@@ -40,10 +40,8 @@ export default function Collection({params}) {
 
   useServerAnalytics({
     shopify: {
-      canonicalPath: `/collections/${handle}`,
       pageType: ShopifyAnalyticsConstants.pageType.collection,
       resourceId: collection.id,
-      collectionHandle: handle,
     },
   });
 

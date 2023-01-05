@@ -5,8 +5,6 @@ import {
   gql,
   Image,
   CacheLong,
-  useServerAnalytics,
-  ShopifyAnalyticsConstants,
 } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
@@ -30,13 +28,6 @@ export default function Post({params, response}) {
       language: languageCode,
       blogHandle: BLOG_HANDLE,
       articleHandle: handle,
-    },
-  });
-
-  useServerAnalytics({
-    shopify: {
-      canonicalPath: `/${BLOG_HANDLE}/${handle}`,
-      pageType: ShopifyAnalyticsConstants.pageType.article,
     },
   });
 
