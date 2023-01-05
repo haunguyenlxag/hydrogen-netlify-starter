@@ -1,5 +1,5 @@
 {
-  "name": "demostore",
+  "name": "hydrogen-netlify-starter",
   "description": "Demo store template for @shopify/hydrogen",
   "version": "0.0.0",
   "license": "MIT",
@@ -9,22 +9,23 @@
   },
   "scripts": {
     "dev": "npm run partytown && shopify hydrogen dev",
-    "build": "npm run partytown &&  shopify hydrogen build",
-    "preview": "npm run partytown && shopify hydrogen preview",
+    "build": "npm run partytown && shopify hydrogen build",
     "partytown": "partytown copylib public/~partytown",
+    "preview": "shopify hydrogen preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "lint-ts": "tsc --noEmit",
     "test": "WATCH=true vitest",
     "test:ci": "yarn build -t node && vitest run"
   },
   "devDependencies": {
-    "@shopify/cli": "3.13.0",
-    "@shopify/cli-hydrogen": "3.13.0",
+    "@netlify/hydrogen-platform": "^1.1.2",
+    "@shopify/cli": "3.15.0",
+    "@shopify/cli-hydrogen": "3.15.0",
     "@shopify/prettier-config": "^1.1.2",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.2",
     "eslint": "^8.18.0",
-    "eslint-plugin-hydrogen": "^0.12.3",
+    "eslint-plugin-hydrogen": "^0.12.2",
     "playwright": "^1.22.2",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
@@ -38,7 +39,7 @@
   "dependencies": {
     "@builder.io/partytown": "^0.7.3",
     "@headlessui/react": "^1.7.0",
-    "@shopify/hydrogen": "^1.6.5",
+    "@shopify/hydrogen": "^1.4.3",
     "clsx": "^1.1.1",
     "graphql-tag": "^2.12.6",
     "react": "^18.2.0",
@@ -46,5 +47,5 @@
     "react-use": "^17.4.0",
     "typographic-base": "^1.0.4"
   },
-  "author": "apac"
+  "author": "matt"
 }
