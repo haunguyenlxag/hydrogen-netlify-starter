@@ -9,10 +9,14 @@ import {
   ShopifyAnalytics,
   ShopifyProvider,
   CartProvider,
+  useSession,
+  useServerAnalytics,
+  Seo,
 } from '@shopify/hydrogen';
 import {HeaderFallback, EventsListener} from '~/components';
-import {DefaultSeo, NotFound} from '~/components/index.server';
+import {NotFound} from '~/components/index.server';
 import {Partytown} from '@builder.io/partytown/react';
+
 function App({request}) {
   const pathname = new URL(request.normalizedUrl).pathname;
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
@@ -20,15 +24,32 @@ function App({request}) {
 
   const isHome = pathname === `/${countryCode ? countryCode + '/' : ''}`;
 
+  const {customerAccessToken} = useSession();
+
+  useServerAnalytics({
+    shopify: {
+      isLoggedIn: !!customerAccessToken,
+    },
+  });
+
   return (
     <Suspense fallback={<HeaderFallback isHome={isHome} />}>
       <EventsListener />
       <ShopifyProvider countryCode={countryCode}>
-        <CartProvider countryCode={countryCode}>
-          <Suspense>
-            <Partytown debug={true} forward={['dataLayer.push']} />
-            <DefaultSeo />
-          </Suspense>
+        <Partytown debug={true} forward={['dataLayer.push']} />
+        <Seo
+          type="defaultSeo"
+          data={{
+            title: 'Hydrogen',
+            description:
+              "A custom storefront powered by Hydrogen, Shopify's React-based framework for building headless.",
+            titleTemplate: `%s · Hydrogen`,
+          }}
+        />
+        <CartProvider
+          countryCode={countryCode}
+          customerAccessToken={customerAccessToken}
+        >
           <Router>
             <FileRoutes
               basePath={countryCode ? `/${countryCode}/` : undefined}

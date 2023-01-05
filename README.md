@@ -1,63 +1,48 @@
-# Hydrogen Demo Store Starter Template
+# Hydrogen Demo Store
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify/hydrogen-netlify-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+Hydrogen is a React framework and SDK that you can use to build fast and dynamic Shopify custom storefronts.
 
-[Hydrogen](https://shopify.dev/custom-storefronts/hydrogen) is a React framework and Software Development Kit (SDK) that can be used to build fast and dynamic custom Shopify storefronts.
+[Check out the docs](https://shopify.dev/custom-storefronts/hydrogen)
 
-This template will show you how to create a sample custom storefront that can be hosted on Netlify.
+[Run this template in JavaScript on StackBlitz](https://stackblitz.com/github/Shopify/hydrogen/tree/dist/templates/demo-store-js?file=package.json)
+
+[Run this template in JavaScript on StackBlitz](https://stackblitz.com/github/Shopify/hydrogen/tree/dist/templates/demo-store-js?file=package.json)
 
 ## Getting started
 
 **Requirements:**
 
-- [Node.js](https://nodejs.org/en/) version 16.5.0 or higher
+- Node.js version 16.14.0 or higher
+- Yarn
 
-### Running the dev server locally
+To create a new Hydrogen app, run:
 
-1. Clone the repositoritory to your computer:
-    ```bash
-    git clone https://github.com/netlify/hydrogen-netlify-starter
-    ```
+```bash
+npm init @shopify/hydrogen
+```
 
-2. Navigate to the repostitory folder:
-    ```bash
-    cd hydrogen-netlify-starter
-    ```
+## Running the dev server
 
-3. Update [`hydrogen.config.js`](hydrogen.config.js) with your shop's domain (replace the `storeDomain` sample value) and [Storefront API token](https://shopify.dev/api/examples/storefront-api#step-2-generate-a-storefront-api-access-token) (replace the `storefrontToken` sample value).
+Then `cd` into the new directory and run:
 
-4. Install the package dependencies:
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+npm run dev
+```
 
-5. Start the application:
-    ```bash
-    npm run dev
-    ```
+Remember to update `hydrogen.config.js` with your shop's domain and Storefront API token!
 
-### Building for production
-
-To build a production-ready instance of the application, run the following command:
+## Building for production
 
 ```bash
 npm run build
 ```
 
-### Previewing a production build
+## Previewing a production build
 
-To run a local preview of your Hydrogen app in an environment similar to Netlify:
+To run a local preview of your Hydrogen app in an environment similar to Oxygen, build your Hydrogen app and then run `npm run preview`:
 
-1. Build your Hydrogen app:
-    ```bash
-    npm run build
-    ```
-
-2. Run the preview command:
-    ```bash
-    npm run preview
-    ```
-
-## Questions and troubleshooting
-
-If you found an issue with the code [in this repository](https://github.com/netlify/hydrogen-netlify-starter/), feel free to open an issue or let us know [in the Netlify Forums](https://answers.netlify.com/).
+```bash
+npm run build
+npm run preview
+```
